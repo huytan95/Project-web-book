@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <c:set value="/WEB-INF/FrontEnd/HeaderAdmin.jsp" var="headAdminURL" scope="application" />
@@ -60,14 +61,20 @@
 	                        <div class="col-md-2 m-auto" style="border-left: 1px solid black;">${loop.index + 1 } </div>
 	                        <div class="col-md-4 m-auto" style="border-left: 1px solid black;">${orderDetail.product.productName }</div>
 	                        <div class="col-md-2 m-auto" style="border-left: 1px solid black;">${orderDetail.quantity }</div>
-	                        <div class="col-md-2 m-auto" style="border-left: 1px solid black;">${orderDetail.unitPrice }</div>
-                            <div class="col-md-2 m-auto" style="border-left: 1px solid black;">${orderDetail.unitPrice *orderDetail.quantity }</div>
+	                        <div class="col-md-2 m-auto" style="border-left: 1px solid black;">
+	                            <fmt:formatNumber value="${orderDetail.unitPrice}" pattern="#,##0đ"/>
+	                        </div>
+                            <div class="col-md-2 m-auto" style="border-left: 1px solid black;">
+                                <fmt:formatNumber value="${orderDetail.unitPrice *orderDetail.quantity }" pattern="#,##0đ"/>
+                            </div>
 
 	                    </div>
                     </c:forEach>
                     <div class="row p-0 bg-info text-white fs-5">
                         <div class="p-2 border col-10 text-center">TỔNG</div>
-                        <div class="p-2 border col-2 text-center">${totalPrice}</div>
+                        <div class="p-2 border col-2 text-center">
+                            <fmt:formatNumber value="${totalPrice}" pattern="#,##0đ"/>
+                        </div>
                     </div>
                     <div class="row">
                         <a href="admin-listOderAdmin"

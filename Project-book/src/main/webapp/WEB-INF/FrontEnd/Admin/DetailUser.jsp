@@ -50,7 +50,9 @@
 							</div> 
 							<div class="row border py-2">
 								<div class="col-md-3 border-end m-auto p-auto">Ngày tháng năm sinh</div>
-		                    	<div class="col-md-9 m-auto p-auto">${user.birthday}</div>
+		                    	<div class="col-md-9 m-auto p-auto">
+		                    	    <fmt:formatDate value="${user.birthday}" pattern="dd-MM-yyyy" />
+		                    	</div>
 							</div> 
 							<div class="row border py-2">
 								<div class="col-md-3 border-end m-auto p-auto">Địa chỉ</div>

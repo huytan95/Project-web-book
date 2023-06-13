@@ -6,9 +6,9 @@ import ProjectEnd.entities.User_role;
 import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
-import ProjectEnd.service.Role.roleDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
+import ProjectEnd.dao.Role.roleDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -33,13 +33,13 @@ public class UserController {
     @Autowired
     private roleDAO roleDao;
     @Autowired
-    private ProjectEnd.service.UserRole.roleUserDAO roleUserDAO;
+    private ProjectEnd.dao.UserRole.roleUserDAO roleUserDAO;
     @Autowired
-    private ProjectEnd.service.contact.contactDAO contactDAO;
+    private ProjectEnd.dao.contact.contactDAO contactDAO;
     @Autowired
     private categoriesInterface catInterface;
     @Autowired
-    private ProjectEnd.service.contact.imageInforDAO imageInforDAO;
+    private ProjectEnd.dao.contact.imageInforDAO imageInforDAO;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -62,6 +62,19 @@ public class UserController {
             model.addAttribute("err", "Tên đăng nhập đã tồn tại!");
             model.addAttribute("user", user);
             return "Register";
+        }
+    }
+    @RequestMapping("preUpdateInforUser")
+    public String preUpdateInforUser(HttpSession session,
+                                     @RequestParam(name = "mess", required = false)String mess,Model model){
+        User user = (User) session.getAttribute("user");
+        if (user == null){
+            return "redirect:/login";
+        } else {
+            loadInfor(model);
+            model.addAttribute("mess", mess);
+            model.addAttribute("user", user);
+            return "Admin/UpdateUser";
         }
     }
     @RequestMapping("updateInforUser")

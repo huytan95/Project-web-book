@@ -7,14 +7,14 @@ import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
 import ProjectEnd.entities.News;
 import ProjectEnd.entities.Orders;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.Role.roleDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.comment.CommentDAO;
-import ProjectEnd.service.news.NewsDAO;
-import ProjectEnd.service.orderDetail.OrderDetailDAO;
-import ProjectEnd.service.orders.OrdersDAO;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.Role.roleDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.comment.CommentDAO;
+import ProjectEnd.dao.news.NewsDAO;
+import ProjectEnd.dao.orderDetail.OrderDetailDAO;
+import ProjectEnd.dao.orders.OrdersDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -44,13 +44,13 @@ public class DashboardControllerAD {
     @Autowired
     private roleDAO roleDao;
     @Autowired
-    private ProjectEnd.service.UserRole.roleUserDAO roleUserDAO;
+    private ProjectEnd.dao.UserRole.roleUserDAO roleUserDAO;
     @Autowired
-    private ProjectEnd.service.contact.contactDAO contactDAO;
+    private ProjectEnd.dao.contact.contactDAO contactDAO;
     @Autowired
     private categoriesInterface catInterface;
     @Autowired
-    private ProjectEnd.service.contact.imageInforDAO imageInforDAO;
+    private ProjectEnd.dao.contact.imageInforDAO imageInforDAO;
     @Autowired
     private NewsDAO newsDao;
     @Autowired
@@ -77,10 +77,16 @@ public class DashboardControllerAD {
         model.addAttribute("contact", contact);
     }
     @RequestMapping("admin-dashboard")
-    public String dashboard(HttpSession session, Model model) {
-            Calendar calendar = Calendar.getInstance();
-            int currentMonth = calendar.get(Calendar.MONTH) + 1;
-            List<Orders> ordersList = ordersDao.getListOrderPerMonth(currentMonth);
+    public String dashboard(@RequestParam(value = "month", required = false)String month, HttpSession session, Model model) {
+            List<Orders> ordersList = new ArrayList<>();
+            if(month == null || month.equals("Lọc theo tháng")){
+                Calendar calendar = Calendar.getInstance();
+                int currentMonth = calendar.get(Calendar.MONTH) + 1;
+                ordersList = ordersDao.getListOrderPerMonth(currentMonth);
+            } else {
+                ordersList = ordersDao.getListOrderPerMonth(Integer.parseInt(month));
+            }
+
             int totalOrder = 0;
             int totalPrice = 0;
             int totalOrderCancel = 0;

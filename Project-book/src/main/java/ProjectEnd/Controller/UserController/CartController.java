@@ -7,12 +7,12 @@ import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
 import ProjectEnd.entities.OrderDetail;
 import ProjectEnd.entities.Orders;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.mail.MailAutoDao;
-import ProjectEnd.service.orderDetail.OrderDetailDAO;
-import ProjectEnd.service.orders.OrdersDAO;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.mail.MailAutoDao;
+import ProjectEnd.dao.orderDetail.OrderDetailDAO;
+import ProjectEnd.dao.orders.OrdersDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.mail.SimpleMailMessage;
@@ -37,11 +37,11 @@ public class CartController {
     @Autowired
     private ProductDAO productDao;
     @Autowired
-    private ProjectEnd.service.contact.contactDAO contactDAO;
+    private ProjectEnd.dao.contact.contactDAO contactDAO;
     @Autowired
     private categoriesInterface catInterface;
     @Autowired
-    private ProjectEnd.service.contact.imageInforDAO imageInforDAO;
+    private ProjectEnd.dao.contact.imageInforDAO imageInforDAO;
     @Autowired
     private OrderDetailDAO orderDetailDao;
     @Autowired
@@ -159,7 +159,7 @@ public class CartController {
         Integer totalQuantity = (Integer) session.getAttribute("totalQuantity");
         for (OrderDetail orderDetail : orderDetailList) {
             if (orderDetail.getProduct().getProductId() == productId) {
-                orderDetail.setQuantity(orderDetail.getQuantity() - +1);
+                orderDetail.setQuantity(orderDetail.getQuantity() - 1);
                 totalQuantity -= 1;
                 break;
             }

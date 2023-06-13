@@ -1,10 +1,9 @@
 package ProjectEnd.Controller.AdminController;
 
-import ProjectEnd.entities.User;
 import ProjectEnd.entities.Message;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.mail.MailAutoDao;
-import ProjectEnd.service.message.MessageDao;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.mail.MailAutoDao;
+import ProjectEnd.dao.message.MessageDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 

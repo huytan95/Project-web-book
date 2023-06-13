@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import ProjectEnd.entities.User;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.comment.CommentDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.comment.CommentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -25,10 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ProjectEnd.entities.Product;
 import ProjectEnd.entities.Categories;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.contact.contactDAO;
-import ProjectEnd.service.contact.imageInforDAO;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.contact.contactDAO;
+import ProjectEnd.dao.contact.imageInforDAO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller

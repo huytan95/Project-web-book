@@ -1,19 +1,18 @@
 package ProjectEnd.Controller.AdminController;
 
-import ProjectEnd.entities.User;
 import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
 import ProjectEnd.entities.OrderDetail;
 import ProjectEnd.entities.Orders;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.contact.contactDAO;
-import ProjectEnd.service.contact.imageInforDAO;
-import ProjectEnd.service.mail.MailAutoDao;
-import ProjectEnd.service.orderDetail.OrderDetailDAO;
-import ProjectEnd.service.orders.OrdersDAO;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.contact.contactDAO;
+import ProjectEnd.dao.contact.imageInforDAO;
+import ProjectEnd.dao.mail.MailAutoDao;
+import ProjectEnd.dao.orderDetail.OrderDetailDAO;
+import ProjectEnd.dao.orders.OrdersDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.mail.SimpleMailMessage;

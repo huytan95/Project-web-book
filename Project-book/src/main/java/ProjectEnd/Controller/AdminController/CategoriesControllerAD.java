@@ -1,10 +1,9 @@
 package ProjectEnd.Controller.AdminController;
 
-import ProjectEnd.entities.User;
 import ProjectEnd.entities.Categories;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -64,7 +64,7 @@
 	                    <div class="row text-center rounded py-2" style="border-bottom: 1px solid rgb(0, 0, 0);">
 	                        <div class="col-md-3 m-auto" style="border-left: 1px solid black;">${order.user.fullName} </div>
 	                        <div class="col-md-3 m-auto" style="border-left: 1px solid black;">
-	                            <fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd" />
+	                            <fmt:formatDate value="${order.orderDate}" pattern="dd-MM-yyyy" />
 	                        </div>
 	                        <div class="col-md-2 m-auto" style="border-left: 1px solid black;">
 	                            <fmt:formatNumber value="${order.totalPrice}" pattern="#,##0đ"/>

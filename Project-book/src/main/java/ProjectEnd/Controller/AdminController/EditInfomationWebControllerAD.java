@@ -6,8 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-import ProjectEnd.entities.User;
-import ProjectEnd.service.User.userDAO;
+import ProjectEnd.dao.User.userDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ProjectEnd.service.contact.contactDAO;
-import ProjectEnd.service.contact.imageInforDAO;
+import ProjectEnd.dao.contact.contactDAO;
+import ProjectEnd.dao.contact.imageInforDAO;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
 import org.springframework.web.multipart.MultipartFile;

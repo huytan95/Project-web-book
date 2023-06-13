@@ -1,8 +1,8 @@
 package ProjectEnd.Controller.UserController;
 
 import ProjectEnd.entities.Message;
-import ProjectEnd.service.mail.MailAutoDao;
-import ProjectEnd.service.message.MessageDao;
+import ProjectEnd.dao.mail.MailAutoDao;
+import ProjectEnd.dao.message.MessageDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;

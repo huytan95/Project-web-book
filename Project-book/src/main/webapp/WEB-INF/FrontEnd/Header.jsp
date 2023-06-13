@@ -32,7 +32,8 @@
 			<div class="row " style="font-size: 12px;">
 				<div class="col-md-8 bg-info text-white py-2 d-flex align-items-center">
 					<i class="fa-solid fa-envelope mx-1"></i>${contact.email }
-					<i class="fa-solid fa-phone mx-2"></i>${contact.phone }
+					<i class="fa-solid fa-phone mx-2"></i>
+					    ${contact.phone.substring(0,4)} ${contact.phone.substring(4,7)} ${contact.phone.substring(7,10)}
 				</div>
 				<div class="col-md-4 bg-info text-white">
 					<div class="row text-center">
@@ -74,7 +75,7 @@
                                             <i class="fa-solid fa-user"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu">
-                                            <li><a class="dropdown-item" href="admin-preUpdateInforUser">
+                                            <li><a class="dropdown-item" href="preUpdateInforUser">
                                                     <i class="fa-solid fa-screwdriver-wrench"></i> Thay đổi thông tin</a></li>
                                             <li><a class="dropdown-item" href="listOder">
                                                     <i class="fa-solid fa-cart-shopping"></i> Đơn mua</a></li>

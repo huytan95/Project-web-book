@@ -6,10 +6,10 @@ import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.Comment;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
-import ProjectEnd.service.Product.ProductDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.comment.CommentDAO;
+import ProjectEnd.dao.Product.ProductDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.comment.CommentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -31,9 +31,9 @@ public class ProductController {
     @Autowired
     private categoriesInterface catInterface;
     @Autowired
-    private ProjectEnd.service.contact.contactDAO contactDAO;
+    private ProjectEnd.dao.contact.contactDAO contactDAO;
     @Autowired
-    private ProjectEnd.service.contact.imageInforDAO imageInforDAO;
+    private ProjectEnd.dao.contact.imageInforDAO imageInforDAO;
     @Autowired
     private ProductDAO productDAO;
     @Autowired

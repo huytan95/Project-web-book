@@ -4,23 +4,26 @@ import java.util.List;
 
 import ProjectEnd.entities.User;
 import ProjectEnd.entities.imageInfor;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.contact.imageInforDAO;
-import ProjectEnd.service.customUserDetailService.CustomUserDetailService;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.contact.imageInforDAO;
+import ProjectEnd.dao.customUserDetailService.CustomUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.contact;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.contact.contactDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.contact.contactDAO;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -61,7 +64,11 @@ public class LoginController {
 	@RequestMapping(value = {"login"}, method = RequestMethod.POST)
 	public String login (@RequestParam("username") String username,
 						 @RequestParam("password") String password,
+						 @RequestParam(value = "remember", required = false) String remember,
+						 @CookieValue(value = "username", defaultValue = "") String usernameCookie,
+						 @CookieValue(value = "password", defaultValue = "") String passwordCookie,
 						 RedirectAttributes ra,
+						 HttpServletResponse response,
 						 HttpSession session, Model model){
 
 		User userFind = userDao.findByUserName(username);
@@ -69,6 +76,18 @@ public class LoginController {
 			if(userFind.getEnabled()==1){
 				if(BCrypt.checkpw(password,userFind.getPassword()))
 				{
+					usernameCookie = username;
+					passwordCookie = password;
+
+					if(remember != null && remember.equals("On")){
+						Cookie userCookie = new Cookie("usernameCookie",usernameCookie);
+						Cookie passCookie = new Cookie("passwordCookie", passwordCookie);
+						userCookie.setMaxAge(30*24*60*60);
+						passCookie.setMaxAge(30*24*60*60);
+						response.addCookie(userCookie);
+						response.addCookie(passCookie);
+					}
+
 					session.setAttribute("user", userFind);
 					String role = userDao.getRoleUser(userFind);
 					if(userDao.getRoleUser(userFind).equals("Admin")){
@@ -76,6 +95,7 @@ public class LoginController {
 					}else {
 						return "redirect:/home";
 					}
+
 				} else {
 					ra.addAttribute("err", "Mật khẩu không đúng");
 					return "redirect:/login";

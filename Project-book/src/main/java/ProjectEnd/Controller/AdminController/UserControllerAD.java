@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
-import ProjectEnd.service.categories.categoriesInterface;
+import ProjectEnd.dao.categories.categoriesInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -27,9 +27,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ProjectEnd.entities.Role;
 import ProjectEnd.entities.User;
 import ProjectEnd.entities.User_role;
-import ProjectEnd.service.Role.roleDAO;
-import ProjectEnd.service.User.userDAO;
-import ProjectEnd.service.UserRole.roleUserDAO;
+import ProjectEnd.dao.Role.roleDAO;
+import ProjectEnd.dao.User.userDAO;
+import ProjectEnd.dao.UserRole.roleUserDAO;
 
 @Controller
 public class UserControllerAD {
@@ -41,11 +41,11 @@ public class UserControllerAD {
 	@Autowired
 	private roleUserDAO roleUserDAO;
 	@Autowired
-	private ProjectEnd.service.contact.contactDAO contactDAO;
+	private ProjectEnd.dao.contact.contactDAO contactDAO;
 	@Autowired
 	private categoriesInterface catInterface;
 	@Autowired
-	private ProjectEnd.service.contact.imageInforDAO imageInforDAO;
+	private ProjectEnd.dao.contact.imageInforDAO imageInforDAO;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -155,19 +155,7 @@ public class UserControllerAD {
 		model.addAttribute("listPage", listPage);
 		return "Admin/ListUserAdmin";
 	}
-	@RequestMapping("admin-preUpdateInforUser")
-	public String preUpdateInforUser(HttpSession session,
-									 @RequestParam(name = "mess", required = false)String mess,Model model){
-		User user = (User) session.getAttribute("user");
-		if (user == null){
-			return "redirect:/login";
-		} else {
-			loadInfor(model);
-			model.addAttribute("mess", mess);
-			model.addAttribute("user", user);
-			return "Admin/UpdateUser";
-		}
-	}
+
 
 	public void loadInfor(Model model){
 		contact contact = contactDAO.getInforById(1);

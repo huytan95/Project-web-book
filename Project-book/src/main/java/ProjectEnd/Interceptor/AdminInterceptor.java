@@ -1,7 +1,7 @@
 package ProjectEnd.Interceptor;
 
 import ProjectEnd.entities.User;
-import ProjectEnd.service.User.userDAO;
+import ProjectEnd.dao.User.userDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

@@ -85,18 +85,20 @@
 							</div> 
 							<div class="row border py-2">
 								<div class="col-md-3 border-end m-auto p-auto">Ngày nhập</div>
-		                    	<div class="col-md-9 m-auto p-auto">${product.importDate}</div>
+		                    	<div class="col-md-9 m-auto p-auto">
+		                    	    <fmt:formatDate value="${product.importDate}" pattern="dd-MM-yyyy" />
+		                    	</div>
 							</div> 
 							<div class="row border py-2">
 								<div class="col-md-3 border-end m-auto p-auto">Mô tả ngắn</div>
 		                    	<div class="col-md-9 m-auto p-auto">
-		                    		<textarea name="" id="" cols="60" rows="5">${product.shortDescription}</textarea>
+		                    		<textarea name="" id="" cols="60" rows="5" readonly>${product.shortDescription}</textarea>
 		                    	</div>
 							</div> 
 							<div class="row border py-2">
 								<div class="col-md-3 border-end m-auto p-auto">Mô tả chi tiết</div>
 		                    	<div class="col-md-9 m-auto p-auto">
-		                    		<textarea name="" id="" cols="60" rows="10">${product.longDescription}</textarea>
+		                    		<textarea name="" id="" cols="60" rows="10" readonly>${product.longDescription}</textarea>
 		                    	</div>
 							</div> 
                         </div>

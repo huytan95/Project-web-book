@@ -11,9 +11,9 @@ import ProjectEnd.entities.User;
 import ProjectEnd.entities.Categories;
 import ProjectEnd.entities.contact;
 import ProjectEnd.entities.imageInfor;
-import ProjectEnd.service.categories.categoriesInterface;
-import ProjectEnd.service.contact.contactDAO;
-import ProjectEnd.service.contact.imageInforDAO;
+import ProjectEnd.dao.categories.categoriesInterface;
+import ProjectEnd.dao.contact.contactDAO;
+import ProjectEnd.dao.contact.imageInforDAO;
 
 @Controller
 public class RegisterController {

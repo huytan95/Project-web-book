@@ -63,8 +63,10 @@
                                             <li class="d-flex text-dark mb-2">
                                                 <span class="mr-3"><span class="icon-map"></span></span> ${contact.address }
                                             </li>
-                                            <li class="d-flex text-dark mb-2"><span class="mr-3"><span
-                                                        class="icon-phone"></span></span>${contact.phone }</li>
+                                            <li class="d-flex text-dark mb-2"><span class="mr-3">
+                                                <span class="icon-phone"></span>
+                                                ${contact.phone.substring(0,4)} ${contact.phone.substring(4,7)} ${contact.phone.substring(7,10)}
+                                            </li>
                                             <li class="d-flex text-dark"><span class="mr-3"><span
                                                         class="icon-envelope-o"></span></span>${contact.email }</li>
                                         </ul>

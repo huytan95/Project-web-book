@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
     .text-container {
         max-height: 210px;
@@ -55,10 +56,13 @@
 							<i class="fas fa-envelope me-3"></i> ${contact.email }
 						</p>
 						<p>
-							<i class="fas fa-phone me-3"></i> ${contact.phone }
+							<i class="fas fa-phone me-3"></i>
+						    ${contact.phone.substring(0,4)} ${contact.phone.substring(4,7)} ${contact.phone.substring(7,10)}
 						</p>
 						<p>
-							<i class="fas fa-print me-3"></i>${contact.phone }</p>
+							<i class="fas fa-print me-3"></i>
+							${contact.phone.substring(0,4)} ${contact.phone.substring(4,7)} ${contact.phone.substring(7,10)}
+						</p>
 					</div>
 				</div>
 			</div>

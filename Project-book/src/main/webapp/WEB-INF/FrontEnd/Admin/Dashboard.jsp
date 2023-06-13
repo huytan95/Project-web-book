@@ -19,7 +19,6 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link href="<c:url value="/sources/css/sb-admin-2.css" />" rel="stylesheet" type="text/css" />
 
     <title>Trang Dashboard</title>
 
@@ -28,69 +27,94 @@
 </head>
 <body>
 	<div class="col-md-9">
+	                <form action = "admin-dashboard">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <select name = "month" class="form-select mb-3" aria-label="Default select example">
+                                  <option selected>Lọc theo tháng</option>
+                                  <option value="1" >Tháng 1</option>
+                                  <option value="2">Tháng 2</option>
+                                  <option value="3">Tháng 3</option>
+                                  <option value="4">Tháng 4</option>
+                                  <option value="5">Tháng 5</option>
+                                  <option value="6">Tháng 6</option>
+                                  <option value="7">Tháng 7</option>
+                                  <option value="8">Tháng 8</option>
+                                  <option value="9">Tháng 9</option>
+                                  <option value="10">Tháng 10</option>
+                                  <option value="11">Tháng 11</option>
+                                  <option value="12">Tháng 12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary mb-2">Cập nhật</button>
+                            </div>
+                        </div>
+	                </form>
+
 					<div class="row">
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-md-3" style="max-height:100px;">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card shadow h-100 py-1" style = "border-left: 3px solid blue">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Doanh thu (tháng)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <div class="h5 ml-2 font-weight-bold text-gray-800" >
                                                 <fmt:formatNumber value="${totalPrice}" pattern="#,##0đ"/>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300" style="color:#8f8b8b"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3" style="max-height:100px;">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card shadow h-100 py-1" style = "border-left: 3px solid green">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Tổng đơn hàng (tháng)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalOrder}</div>
+                                                Tổng đơn (tháng)</div>
+                                            <div class="h5 ml-2 font-weight-bold text-gray-800">${totalOrder}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px"></i>
+                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px; color:#8f8b8b "></i>
                                         </div >
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3" style="max-height:100px;">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card shadow h-100 py-1" style = "border-left: 3px solid #ffc107">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                Đơn hoàn thành</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalOrderSuccess}</div>
+                                            <div class="h5 ml-2 font-weight-bold text-gray-800">${totalOrderSuccess}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px"></i>
+                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px; color:#8f8b8b"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3" style="max-height:100px;">
-                            <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card shadow h-100 py-1" style = "border-left: 3px solid red">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                Đơn hủy</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${totalOrderCancel}</div>
+                                            <div class="h5 ml-2 font-weight-bold text-gray-800">${totalOrderCancel}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px"></i>
+                                            <i class="fa-solid fa-cart-shopping text-gray-300" style="font-size:30px; color:#8f8b8b"></i>
                                         </div>
                                     </div>
                                 </div>

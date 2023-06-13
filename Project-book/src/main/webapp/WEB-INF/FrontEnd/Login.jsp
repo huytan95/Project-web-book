@@ -36,25 +36,22 @@
 					<form name='loginForm' action="login" method="POST">
 						<!-- username input -->
 						<div class="form-outline mb-4">
-							<input type="text" id="form2Example1" name="username" class="form-control" />
+							<input type="text" id="form2Example1" name="username" class="form-control" value="${cookie.usernameCookie.value}" required/>
 							<label class="form-label" for="form2Example1">Tên đăng nhập</label>
 						</div>
 
 						<!-- Password input -->
 						<div class="form-outline mb-4">
-							<input type="password" id="form2Example2" name ="password" class="form-control" />
+							<input type="password" id="form2Example2" name ="password" class="form-control" value="${cookie.passwordCookie.value}" required/>
 							<label class="form-label" for="form2Example2">Mật khẩu</label>
 						</div>
 
-						<!-- 2 column grid layout for inline styling -->
 						<div class="row mb-4">
 							<div class="col d-flex justify-content-center">
 								<!-- Checkbox -->
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value=""
-										id="form2Example31" checked /> <label
-										class="form-check-label" for="form2Example31">
-										Remember me </label>
+									<input class="form-check-input" type="checkbox" value="On" id="form2Example31" name = "remember" />
+									<label class="form-check-label" for="form2Example31"> Ghi nhớ mật khẩu </label>
 								</div>
 							</div>
 
