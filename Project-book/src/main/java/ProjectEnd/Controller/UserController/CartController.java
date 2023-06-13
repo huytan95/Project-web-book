@@ -154,16 +154,22 @@ public class CartController {
     }
 
     @RequestMapping("productMinus")
-    public String productMinus(@RequestParam("productId") Integer productId, HttpSession session) {
+    public String productMinus(@RequestParam("productId") Integer productId,
+                               RedirectAttributes ra, HttpSession session) {
         List<OrderDetail> orderDetailList = (List<OrderDetail>) session.getAttribute("orderDetailList");
         Integer totalQuantity = (Integer) session.getAttribute("totalQuantity");
         for (OrderDetail orderDetail : orderDetailList) {
             if (orderDetail.getProduct().getProductId() == productId) {
                 orderDetail.setQuantity(orderDetail.getQuantity() - 1);
                 totalQuantity -= 1;
+                if(orderDetail.getQuantity()<=0){
+                    totalQuantity = 1;
+                    orderDetail.setQuantity(1);
+                }
                 break;
             }
         }
+
         session.setAttribute("totalQuantity", totalQuantity);
         session.setAttribute("orderDetailList", orderDetailList);
         return "redirect:/listCart";
