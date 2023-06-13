@@ -86,7 +86,6 @@ public class DashboardControllerAD {
             } else {
                 ordersList = ordersDao.getListOrderPerMonth(Integer.parseInt(month));
             }
-
             int totalOrder = 0;
             int totalPrice = 0;
             int totalOrderCancel = 0;

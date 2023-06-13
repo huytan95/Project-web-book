@@ -58,7 +58,7 @@
 
                                             <a href="productMinus?productId=${orderDetail.product.productId}"
                                                 class="text-decoration-none text-white qtyminus">-<div class=""></div></a>
-                                            <input type="text" name="quantity" value="${orderDetail.quantity}" class="qty">
+                                            <input type="text" name="quantity" value="${orderDetail.quantity}" class="qty" readonly>
                                             <a href="productPlus?productId=${orderDetail.product.productId}"
                                                 class="text-decoration-none text-white qtyplus">+<div class=""></div></a>
                                         </form>
