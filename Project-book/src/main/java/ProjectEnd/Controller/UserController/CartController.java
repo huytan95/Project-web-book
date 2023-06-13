@@ -148,6 +148,7 @@ public class CartController {
                 break;
             }
         }
+
         session.setAttribute("totalQuantity", totalQuantity);
         session.setAttribute("orderDetailList", orderDetailList);
         return "redirect:/listCart";
